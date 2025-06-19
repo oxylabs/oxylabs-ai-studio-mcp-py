@@ -1,6 +1,6 @@
 [project]
 name = "oxylabs-ai-studio-mcp"
-version = "0.1.0"
+version = "0.1.2"
 description = "oxylabs ai studio mcp server"
 readme = "README.md"
 keywords = ["oxylabs", "ai", "studio", "mcp"]

@@ -219,7 +219,7 @@ async def ai_search(
     'return_content' is used to return markdown content for each search result.If 'return_content'
         is set to True, you don't need to use ai_scrape to get the content of the search results urls,
         because it is already included in the search results.
-    if 'render_javascript' is set to True, prefer lower 'limit' to reduce payload size.
+    if 'return_content' is set to True, prefer lower 'limit' to reduce payload size.
     """  # noqa: E501
     logger.info(
         f"Calling ai_search with: {query=}, {limit=}, "

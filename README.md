@@ -20,7 +20,7 @@ The Oxylabs AI Studio MCP server provides various AI tools for your agents.:
 - Scrape: Allows getting content from any url in json or markdown format.
 - Crawl: Based on prompt crawls a website and collects data in markdown or json format.
 - Browser Agent: Given a task, agent controls a browser to achieve given object and returns data in markdown, json, html or screenshot formats.
-
+- Search: Allows search the web for urls and their contents.
 
 ---
 

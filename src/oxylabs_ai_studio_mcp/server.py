@@ -3,7 +3,7 @@ import os
 from typing import Annotated, Any, Literal, TypedDict
 
 from mcp.server.fastmcp import FastMCP
-from oxylabs_ai_studio.apps.ai_crawl import AiCrawl
+from oxylabs_ai_studio.apps.ai_crawler import AiCrawler
 from oxylabs_ai_studio.apps.ai_scraper import AiScraper
 from oxylabs_ai_studio.apps.ai_search import AiSearch
 from oxylabs_ai_studio.apps.browser_agent import BrowserAgent
@@ -26,7 +26,7 @@ type JpegBase64Type = str
 
 
 @mcp.tool()
-async def ai_crawl(
+async def ai_crawler(
     url: Annotated[
         str, Field(description="The URL from which crawling will be started")
     ],
@@ -75,11 +75,11 @@ async def ai_crawl(
     for example if you expect results from single source, you can set it to 1.
     """  # noqa: E501
     logger.info(
-        f"Calling ai_crawl with: {url=}, {user_prompt=}, "
+        f"Calling ai_crawler with: {url=}, {user_prompt=}, "
         f"{output_format=}, {schema=}, {render_javascript=}, "
         f"{return_sources_limit=}"
     )
-    crawler = AiCrawl(api_key=OXYLABS_AI_STUDIO_API_KEY)
+    crawler = AiCrawler(api_key=OXYLABS_AI_STUDIO_API_KEY)
     result = await crawler.crawl_async(
         url=url,
         user_prompt=user_prompt,
@@ -92,7 +92,7 @@ async def ai_crawl(
 
 
 @mcp.tool()
-async def ai_scrape(
+async def ai_scraper(
     url: Annotated[str, Field(description="The URL to scrape")],
     output_format: Annotated[
         Literal["json", "markdown"],
@@ -130,7 +130,7 @@ async def ai_scrape(
     'render_javascript' is used to render javascript heavy websites.
     """
     logger.info(
-        f"Calling ai_scrape with: {url=}, {output_format=}, "
+        f"Calling ai_scraper with: {url=}, {output_format=}, "
         f"{schema=}, {render_javascript=}"
     )
     scraper = AiScraper(api_key=OXYLABS_AI_STUDIO_API_KEY)
@@ -217,7 +217,7 @@ async def ai_search(
     """Search the web based on a provided query.
 
     'return_content' is used to return markdown content for each search result.If 'return_content'
-        is set to True, you don't need to use ai_scrape to get the content of the search results urls,
+        is set to True, you don't need to use ai_scraper to get the content of the search results urls,
         because it is already included in the search results.
     if 'return_content' is set to True, prefer lower 'limit' to reduce payload size.
     """  # noqa: E501
@@ -237,13 +237,13 @@ async def ai_search(
 
 @mcp.tool()
 async def generate_schema(
-    user_prompt: str, app_name: Literal["ai_crawl", "ai_scrape", "browser_agent"]
+    user_prompt: str, app_name: Literal["ai_crawler", "ai_scraper", "browser_agent"]
 ) -> dict[str, Any] | None:
     """Generates a json schema in openapi format."""
-    if app_name == "ai_crawl":
-        crawler = AiCrawl(api_key=OXYLABS_AI_STUDIO_API_KEY)
+    if app_name == "ai_crawler":
+        crawler = AiCrawler(api_key=OXYLABS_AI_STUDIO_API_KEY)
         return crawler.generate_schema(prompt=user_prompt)  # type: ignore
-    if app_name == "ai_scrape":
+    if app_name == "ai_scraper":
         scraper = AiScraper(api_key=OXYLABS_AI_STUDIO_API_KEY)
         return scraper.generate_schema(prompt=user_prompt)  # type: ignore
     if app_name == "browser_agent":

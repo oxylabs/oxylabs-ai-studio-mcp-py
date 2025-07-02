@@ -9,7 +9,7 @@ from oxylabs_ai_studio.apps.ai_search import AiSearch
 from oxylabs_ai_studio.apps.browser_agent import BrowserAgent
 from pydantic import Field
 
-logger = logging.getLogger(__file__)
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 mcp = FastMCP(

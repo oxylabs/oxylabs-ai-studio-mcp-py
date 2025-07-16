@@ -7,7 +7,7 @@ keywords = ["oxylabs", "ai", "studio", "mcp"]
 requires-python = ">=3.10"
 dependencies = [
     "mcp[cli]>=1.9.4",
-    "oxylabs-ai-studio>=0.2.7",
+    "oxylabs-ai-studio>=0.2.8",
     "pydantic>=2.11.5",
     "python-dotenv>=1.1.0",
 ]

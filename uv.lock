@@ -735,7 +735,7 @@ wheels = [
 
 [[package]]
 name = "oxylabs-ai-studio"
-version = "0.2.7"
+version = "0.2.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -743,9 +743,9 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ff/ac/b483a17ab2146a48162e1c6acea901951f002079db8e7f53bc3e902f657f/oxylabs_ai_studio-0.2.7.tar.gz", hash = "sha256:1dcf037b49bd8aa9b5b1e2896ec9c7652fbe39cfc660a23e2e4166b900f2fa98", size = 45186 }
+sdist = { url = "https://files.pythonhosted.org/packages/d4/bc/5a6b6bd58acb8e2fe02e6af800b84571918b78f2320354925054f18da5aa/oxylabs_ai_studio-0.2.8.tar.gz", hash = "sha256:09517fc4d8ab147afb155fed2b5e2437f574a54a5b03950fc9ee4449991dc90f", size = 46625 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7e/e1/f04dc82f52795d0dba65690841d77abfb36d5b54979b8f8e9a7c448ddb8c/oxylabs_ai_studio-0.2.7-py3-none-any.whl", hash = "sha256:370a26159b65225ff6b7e312e8241e6a114997376552f151b8214baa5e4349e3", size = 11579 },
+    { url = "https://files.pythonhosted.org/packages/31/99/21d76e9b49b3ba5ca18d9d5fdd7d145f7f34e6392a8f073eee447cdbbfeb/oxylabs_ai_studio-0.2.8-py3-none-any.whl", hash = "sha256:267490e6d6b490f3b4989e7bdd4ceef0ccb74f51fbade713cfc063ba28507076", size = 11719 },
 ]
 
 [[package]]
@@ -769,7 +769,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "mcp", extras = ["cli"], specifier = ">=1.9.4" },
-    { name = "oxylabs-ai-studio", specifier = ">=0.2.7" },
+    { name = "oxylabs-ai-studio", specifier = ">=0.2.8" },
     { name = "pydantic", specifier = ">=2.11.5" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
 ]

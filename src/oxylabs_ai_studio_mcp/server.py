@@ -232,7 +232,7 @@ async def ai_search(
         render_javascript=render_javascript,
         return_content=return_content,
     )
-    return result.data  # type: ignore
+    return result.model_dump(mode="json")["data"] or []
 
 
 @mcp.tool()
